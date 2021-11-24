@@ -13,15 +13,25 @@ import {
 import { Button } from "../components/Button";
 import { SkillCard } from "../components/SkillCard";
 
+interface ISkillData{
+    id: string;
+    name: string
+}
+
 
 export function Home(){
 
     const [newSkill, setNewSkill] = useState('');
-    const [mySkills, setMySkills] = useState([]);
+    const [mySkills, setMySkills] = useState<ISkillData[]>([]);
     const [gretting, setGretting] = useState('');
 
     function handleAddNewSkill(){
-        setMySkills(oldState => [...oldState, newSkill]) //O oldState é o estado anterior de mySkills, ou seja,
+        const data ={
+            id: String(new Date().getTime()),
+            name: newSkill
+        }
+        
+        setMySkills(oldState => [...oldState, data]) //O oldState é o estado anterior de mySkills, ou seja,
         //Tudo que estava armazenado no mySkills
     }
 
@@ -62,7 +72,7 @@ export function Home(){
         />
 
         <Button //Component criado, veja a importação!
-            onClick={handleAddNewSkill}
+            onPress={handleAddNewSkill}
         />
 
         <Text     style={[styles.title, {marginVertical:30}]}>
@@ -73,9 +83,9 @@ export function Home(){
         
         <FlatList 
             data={mySkills}
-            keyExtractor={item => item}//Responsavel por fazer a criação de uma key para cada renderização realizada
+            keyExtractor={item => item.id}//Responsavel por fazer a criação de uma key para cada renderização realizada
             renderItem={({item}) => (
-                <SkillCard skill={item}/> //Component criado, veja a importação!
+                <SkillCard skill={item.name}/> //Component criado, veja a importação!
                 //o skill é um atributo que criamos para o componente SkillCard, que vai repassar como valor o item
                 //Esse renderItem percorre o dado que foi passado no atributo data, funcionando como um map por exemplo
             )}
