@@ -6,11 +6,11 @@ import {
         } from 'react-native'
 
 
-export function Button({ aoClicar }){
+export function Button({ onClick }){
     return (<TouchableOpacity 
         activeOpacity={.2}
         style={styles.button}
-        onPress={aoClicar}
+        onPress={onClick}
         > 
 
         <Text style={styles.buttonText}>Add</Text>
