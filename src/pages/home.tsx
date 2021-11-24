@@ -35,6 +35,12 @@ export function Home(){
         //Tudo que estava armazenado no mySkills
     }
 
+    function handleRemoveSkill (id: string){
+        setMySkills(oldstate => oldstate.filter(
+            skill=> skill.id !== id  
+        ))
+    }
+
     //Recebe dois parâmetros, uma função e um array com as dependências(Dizendo que o useEffect será executado,
     //toda vez que houver alteração no estado dessas dependências. Ele seré executado, alem das dependências,
     //na montagem do app, ou seja, ao inicializar o app)
@@ -73,6 +79,8 @@ export function Home(){
 
         <Button //Component criado, veja a importação!
             onPress={handleAddNewSkill}
+            activeOpacity={.3}
+            title="Add"
         />
 
         <Text     style={[styles.title, {marginVertical:30}]}>
@@ -85,7 +93,10 @@ export function Home(){
             data={mySkills}
             keyExtractor={item => item.id}//Responsavel por fazer a criação de uma key para cada renderização realizada
             renderItem={({item}) => (
-                <SkillCard skill={item.name}/> //Component criado, veja a importação!
+                <SkillCard 
+                    skill={item.name}
+                    onPress={() => handleRemoveSkill(item.id)}
+                /> //Component criado, veja a importação!
                 //o skill é um atributo que criamos para o componente SkillCard, que vai repassar como valor o item
                 //Esse renderItem percorre o dado que foi passado no atributo data, funcionando como um map por exemplo
             )}

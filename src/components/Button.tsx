@@ -6,19 +6,23 @@ import {
     StyleSheet
         } from 'react-native'
 
-    type ButtonProps = TouchableOpacityProps; //Definindo que o tipo criado ButtonProps é a interface
-    //do TouchableOpacityProps que possui todas as propriedades do TouchableOpacity
+    interface IButtonProps extends TouchableOpacityProps{//Definindo que a interface IButtonProps extende
+    //a interface do TouchableOpacityProps que possui todas as propriedades do TouchableOpacity 
+    //mais o que será definido dentro dela mesma, que no caso é title
+        title:string
+    } 
 
-export function Button({ ...rest } : ButtonProps ){
-    //...rest define que irei receber todas as propriedades definidas no meu componente <Button /> la no home,
-    //que vai ser do tipo ButtonProps (olhar acima)
+export function Button({ title, ...rest } : IButtonProps ){
+    //...rest define que irei receber todas as propriedades definidas no meu componente <Button /> la no home e um title,
+    //que vai ser do tipo IButtonProps (olhar acima)
     return (<TouchableOpacity 
-        activeOpacity={.2}
         style={styles.button}
         {...rest} //Despejo todas as propriedades passadas <Button /> para dentro do meu <TouchableOpacity />
         > 
 
-        <Text style={styles.buttonText}>Add</Text>
+        <Text style={styles.buttonText}>
+            {title}
+        </Text>
 
     </TouchableOpacity>
     )
