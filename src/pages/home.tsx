@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect} from 'react';
 import {
-    View, 
-    Text, 
-    StyleSheet,
-    SafeAreaView, 
-    TextInput, 
-    Platform,
-    FlatList,
-    StatusBar
-    } from 'react-native'
+View, 
+Text, 
+StyleSheet,
+SafeAreaView, 
+TextInput, 
+Platform,
+FlatList,
+StatusBar
+} from 'react-native';
 
 import { Button } from "../components/Button";
 import { SkillCard } from "../components/SkillCard";

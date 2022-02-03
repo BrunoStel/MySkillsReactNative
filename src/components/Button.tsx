@@ -1,16 +1,16 @@
 import React, {useState} from "react"
-import { 
+import {
     TouchableOpacity,
     TouchableOpacityProps,
     Text,
     StyleSheet
-        } from 'react-native'
+    } from 'react-native'
 
-    interface IButtonProps extends TouchableOpacityProps{//Definindo que a interface IButtonProps extende
-    //a interface do TouchableOpacityProps que possui todas as propriedades do TouchableOpacity 
-    //mais o que será definido dentro dela mesma, que no caso é title
-        title:string
-    } 
+interface IButtonProps extends TouchableOpacityProps{//Definindo que a interface IButtonProps extende
+//a interface do TouchableOpacityProps que possui todas as propriedades do TouchableOpacity 
+//mais o que será definido dentro dela mesma, que no caso é title
+    title:string
+}
 
 export function Button({ title, ...rest } : IButtonProps ){
     //...rest define que irei receber todas as propriedades definidas no meu componente <Button /> la no home e um title,
