@@ -15,8 +15,7 @@ lane :release_android do
   firebase_app_distribution(
     app: "1:393145394907:android:ee4e7a1bd63efc360fcefe",
     groups: "testadoresinterno",
-    release_notes: "Teste firebase distribution",
-    service_credentials_file: "myskills-38de9-cb2883860334.json"
+    release_notes: "Teste firebase distribution"
   )
 end
 
