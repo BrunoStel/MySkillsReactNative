@@ -29,6 +29,9 @@ build/
 local.properties
 *.iml
 *.hprof
+google-services.json
+report.xml
+myskills-38de9-cb2883860334.json
 
 # node.js
 #
