@@ -1,3 +1,7 @@
+before_all do
+  sh 'yarn'
+end
+
 desc 'Build android release app'
 lane :release_android do
   gradle(task: 'clean', project_dir: 'android/')
